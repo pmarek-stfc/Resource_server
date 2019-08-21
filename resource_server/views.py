@@ -34,7 +34,7 @@ def resource_server(request):
     }
     # 1) Call Keycloak token introspection endpoint
     # 2) make the information within response from Keycloak accessible by '.json()' method
-    response = requests.post('http://localhost:9000/auth/realms/master/protocol/openid-connect/token/introspect',
+    response = requests.post(settings.KEYCLOAK_TOKEN_INTROSPECT_URL,
                              data=payload).json()
 
     if response['active']:

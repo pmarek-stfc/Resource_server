@@ -120,21 +120,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-AUTHENTICATION_BACKENDS = [
-    'resource_server.resource_server.KeycloakBackend',
-]
-LOGIN_URL = 'login'
 # Keycloak settings
 KEYCLOAK_CLIENT_ID = 'test'
 KEYCLOAK_CLIENT_SECRET = 'bb407cfe-0328-4e3e-952c-c338a4361fb5'
-KEYCLOAK_AUTHORIZE_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/auth'
-KEYCLOAK_TOKEN_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/token'
-KEYCLOAK_USERINFO_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/userinfo'
+KEYCLOAK_TOKEN_INTROSPECT_URL = 'http://localhost:9000/auth/realms/master/protocol/openid-connect/token/introspect'
 KEYCLOAK_PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhFFnTfNitQXyA3mBd6ShmzyrFdCbbPzbqmzr4/Rx83QzIRpMgQup+y+SL5/Xc10BunMrH886NA/3w2GLKaGiimPsAqCMasv6VaoZBd/TtGFKvWkWhkVbqOAPKTle2d7cTf2yehAWb3Y/I2gPvflcOmMdH3SEmhpfqDioLWIb/R6yd752wGl7lHooyGPGi9TF/yyUrfyRKj7BivpzHEkz2GrkKF10gzGTdevTPTpD0qxYVoEquMJdqvjqa/2Bwx/korYZYBytENBp8bkmSqB5YoNLqSBL1yZgPsfMSax6tVal560DjOL732ZcHiFTr7gftsrbn4ksWxr9W8ZcC3CPDwIDAQAB\n-----END PUBLIC KEY-----"""
-
-
-# for python social auth
-# PUBLIC_KEY = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhFNMmPdOa9c+exhND9CvZREoOUIfs0b2Dv9/RDKWQjC9CmS0+oJ5R1joJAVSJL4G3N0U62On6QVkTaqFcj5MdQzmhxFA5JTkoTJA4j/9Fmvn3OJaotjsT28cnLI6K8Noabf04A9+zsR4QORSXE4XtxmfLBCWuLRY+GbxvX6j9tAT18who6M4gUzbyMq7NancIsVoNb1bDq1MN7rGl/DL+TEC494F3md0w48XhwGzaLfj+zuTWC+PTilh/abe48v67HCnNIFVLEMLzYJ/S+6aYD+5hJoET7pRS9qzGbyRMVP9CAShs2WVc1keFDwSV7+swpIc2c6Nhft52IrCi89fewIDAQAB'
 
 LOGGING = {
     'version': 1,

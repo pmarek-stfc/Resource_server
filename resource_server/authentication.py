@@ -19,7 +19,7 @@ class Authenticate():
             so the user can be logged in.
             If the token is invalid, appropriate response with an error is sent back instead.
 
-        :param request:
+        :param token
         :return: response
         """
         token = token

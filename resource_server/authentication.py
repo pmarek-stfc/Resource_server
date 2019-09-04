@@ -29,10 +29,16 @@ class Authenticate():
             'client_id': settings.KEYCLOAK_CLIENT_ID,
             'token': token
         }
+        
+        verify = True
+        if hasattr(settings, 'SSL_VERIFY'):
+            verify = settings.SSL_VERIFY
+            
         # 1) Call Keycloak token introspection endpoint
         # 2) make the information within response from Keycloak accessible by '.json()' method
         response = requests.post(settings.KEYCLOAK_TOKEN_INTROSPECT_URL,
-                                 data=payload).json()
+                                    data=payload,
+                                    verify=verify).json()
 
         if response['active']:
             # verify signature and store decoded token information in a variable

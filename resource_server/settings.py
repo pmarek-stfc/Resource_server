@@ -125,6 +125,7 @@ KEYCLOAK_CLIENT_ID = 'test'
 KEYCLOAK_CLIENT_SECRET = '<PUT THE SECRET HERE>'
 KEYCLOAK_TOKEN_INTROSPECT_URL = 'http://localhost:8080/auth/realms/master/protocol/openid-connect/token/introspect'
 KEYCLOAK_PUBLIC_KEY = """-----BEGIN PUBLIC KEY-----\n<PUT THE PUBLIC KEY HERE>\n-----END PUBLIC KEY-----"""
+SSL_VERIFY = False
 
 LOGGING = {
     'version': 1,

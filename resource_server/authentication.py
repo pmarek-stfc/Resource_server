@@ -39,10 +39,16 @@ class Authenticate():
         response = requests.post(settings.KEYCLOAK_TOKEN_INTROSPECT_URL,
                                     data=payload,
                                     verify=verify).json()
+        audience = response['aud']
+
+        # get headers from token to extract algorithm type
+        header = jwt.get_unverified_header(token)
+        algorithm = header['alg']
+
 
         if response['active']:
             # verify signature and store decoded token information in a variable
-            decoded = jwt.decode(token, settings.KEYCLOAK_PUBLIC_KEY, algorithms='RS256', audience="account", verify=True)
+            decoded = jwt.decode(token, settings.KEYCLOAK_PUBLIC_KEY, algorithms=algorithm, audience=audience)
 
             response = HttpResponse(content_type="application/json", status=200)
             # put decoded token information inside the header of the response too
